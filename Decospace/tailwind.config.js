@@ -33,6 +33,7 @@ export default {
 			'sm': {'max': '767px'},
 			'esm':{'max':'374px'},
 			'xl':{'min':'1335px'},
+      '2xl':{'min':'2100px'}
 
 			
 		  }
