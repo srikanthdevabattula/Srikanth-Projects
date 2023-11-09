@@ -1,5 +1,6 @@
 import React from 'react'
-import Intro from '../Intro/Intro'
+import Intro from './components/Intro/Intro'
+
 
 const Home = () => {
   return (
