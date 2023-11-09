@@ -14,7 +14,20 @@ Click on the "Code" button, copy the repository URL, and use the following comma
 Replace the URL with the one you copied.
       
 Setting up the Project:
+
+
+
+
+
+
 ##############
+
+
+
+
+
+
+
 1.Navigate to the Project:
 Change into the project directory using:
 
@@ -88,7 +101,41 @@ If the project is a web application, it likely has a script to start a developme
 
 
 #################
+
+
+
+
+
+
+
 Dependencies:
+
+
+
+
+
+
+
+
 **yarn add react-router-dom
+
+
+
+
+
+
+
+
 yarn add react-icons --save
+
+
+
+
+
+
+
+
+
+
+
 npm install swiper**  
