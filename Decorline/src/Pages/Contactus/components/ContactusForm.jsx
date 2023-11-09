@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Contactus.css";
+import "./../Contactus.css";
 import { AiFillCloseCircle } from "react-icons/ai";
 
 function ContactUsForm({ setContactForm }) {

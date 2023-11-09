@@ -3,7 +3,7 @@ import {IoIosArrowForward} from 'react-icons/io'
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
 import blog from '../../assets/ANmain.png'
-import ContactUsForm from './ContactusForm';
+import ContactUsForm from './components/ContactusForm';
 const ContactUs = () => {
     const backgroundImageStyle = {
         backgroundImage: `url(${blog})`,
