@@ -37,7 +37,7 @@ const Navbar = () => {
         <img src={Logo} alt="" className='h-[78px] w-[303px] lg:h-[60px] lg:w-[250px] md:h-[45px] md:w-[150px] sm:w-[50px] sm:h-[30px]'/>
         <div className='flex space-x-10 lg:space-x-6 md:space-x-4 sm:space-x-2 text-[15px] lg:text-[13px] md:text-[11px] sm:text-[6px] esm:text-[5px] font-semibold'>
             <Link to='/'>Home</Link>
-            <Link to='/'>About Us</Link>
+            <Link to='/AboutUs'>About Us</Link>
             <h1  onClick={DesignIdeasDropdown} className="relative group" ><button className='flex items-center'>DESIGN IDEAS <IoMdArrowDropdown/></button>
             {isDesignDropdownOpen && (
             <div className="absolute mt-2 space-y-2 sm:space-y-0 bg-[#FFFFFF] border border-t-[yellow] border-t-[2px]  rounded-lg z-10 text-[15px] lg:text-[13px] md:text-[11px] sm:text-[6px] w-[230px] lg:w-[200px] md:w-[170px] sm:w-[110px]">
@@ -65,7 +65,7 @@ const Navbar = () => {
           )}
             </h1>
             <Link to='/'>store</Link>
-            <Link to='/'>contact us</Link>
+            <Link to='/ContactUs'>contact us</Link>
         </div>
         <div className='flex items-center space-x-4 md:space-x-2 font-semibold'>
             <div className='flex text-[26px] lg:text-[20px] md:text-[12px]'><MdOutlinePerson/> <IoMdArrowDropdown/></div>

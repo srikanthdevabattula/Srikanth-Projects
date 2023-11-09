@@ -1,9 +1,13 @@
 import React from 'react'
-
+import intro from '../../assets/HomePage.png'
 const Intro = () => {
+    const backgroundImageStyle = {
+        backgroundImage: `url(${intro})`,
+        
+      };
   return (
     <div>
-    <div className="bg-intro bg-cover bg-center h-[805px] lg:h-[600px] md:h-[550px] sm:h-[400px] text-center pt-[7%] space-y-[2%]">
+    <div className=" bg-cover bg-center h-[805px] lg:h-[600px] md:h-[550px] sm:h-[400px] text-center pt-[7%] space-y-[2%]" style={backgroundImageStyle}>
 <h1 className='font-Roboto font-bold text-[white] text-[83px] lg:text-[60px] md:text-[50px] sm:text-[30px] px-[10%]'>Refining the tone of your space</h1>
 <p className='text-[white] font-poppins text-[23px] lg:text-[19px] md:text-[15px] sm:text-[10px] leading-[34px] sm:leading-[15px] px-[20%]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
 <button className='bg-[#FFDA18] h-[65px] w-[206px] lg:h-[50px] lg:w-[170px] md:h-[45px] md:w-[150px] sm:h-[35px] sm:w-[120px] text-[18px] lg:text-[16px] md:text-[14px] sm:text-[12px] font-bold font-poppins'>OUR PROJECT</button>

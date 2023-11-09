@@ -4,15 +4,21 @@ import {IoIosArrowForward,IoIosArrowDroprightCircle} from 'react-icons/io'
 import an1 from '../../assets/AN1.png'
 import an2 from '../../assets/AN2.png'
 import an3 from '../../assets/AN3.png'
+import blog from '../../assets/ANmain.png'
 const Blogs = () => {
+  const backgroundImageStyle = {
+    backgroundImage: `url(${blog})`,
+    
+  };
+
   return (
     <div>
-      <div className='bg-blog bg-cover bg-center h-[316px] flex text-[white] flex-col justify-center items-center'>
-    <h1 className='text-[48px] font-poppins'>About Us</h1>
-    <div className='flex space-x-3 items-center'>
-    <Link to='/' className='font-poppins font-medium text-[16px] '>Home</Link>
+             <div className='bg-cover bg-center h-[316px] sm:h-[250px] flex text-[white] flex-col justify-center items-center ' style={backgroundImageStyle}>
+    <h1 className='text-[48px] sm:text-[30px] font-poppins'>About Us</h1>
+    <div className='flex space-x-3 items-center text-[16px] sm:text-[13px]'>
+    <Link to='/' className='font-poppins font-medium  '>Home</Link>
      <IoIosArrowForward/>
-    <p className='font-light'>Articles &News</p>
+    <p className='font-light '>Articals & Blogs</p>
     </div>
       </div>
       <div className='flex justify-between px-[3%] items-center mt-3'>
