@@ -35,7 +35,7 @@ Change into the project directory using:
 
 
 
-**cd Decospace**
+**cd file path**
 
 
 
