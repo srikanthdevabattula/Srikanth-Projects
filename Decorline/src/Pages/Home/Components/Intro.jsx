@@ -1,5 +1,5 @@
 import React from 'react'
-import intro from '../../../../assets/HomePage.png'
+import intro from '../../../assets/HomePage.png'
 const Intro = () => {
     const backgroundImageStyle = {
         backgroundImage: `url(${intro})`,
