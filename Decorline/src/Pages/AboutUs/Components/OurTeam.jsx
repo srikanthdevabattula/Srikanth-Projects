@@ -1,7 +1,7 @@
 import React from 'react'
-import team1 from '../../assets/team1.png'
-import team2 from '../../assets/team2.png'
-import team3 from '../../assets/team3.png'
+import team1 from '../../../assets/team1.png'
+import team2 from '../../../assets/team2.png'
+import team3 from '../../../assets/team3.png'
 import {BsThreeDots} from 'react-icons/bs'
 const OurTeam = () => {
   return (

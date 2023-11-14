@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import Aboutus from '../../assets/aboutus.png'
 import blog from '../../assets/ANmain.png'
 
-import OurTeam from './OurTeam'
+import OurTeam from './Components/OurTeam'
 import {BsThreeDots} from 'react-icons/bs'
 
 import whyus1 from '../../assets/whyus1.png'
@@ -20,7 +20,7 @@ const AboutUs = () => {
   return (
     <div>
           <div className=' bg-cover bg-center h-[316px] sm:h-[250px] flex text-[white] flex-col justify-center items-center' style={backgroundImageStyle}>
-    <h1 className='text-[48px] sm:text-[30px] font-poppins'>About Us</h1>
+    <h1 className='text-[48px] sm:text-[30px] font-poppins font-bold'>About Us</h1>
     <div className='flex space-x-3 items-center text-[16px] sm:text-[13px]'>
     <Link to='/' className='font-poppins font-medium  '>Home</Link>
      <IoIosArrowForward/>

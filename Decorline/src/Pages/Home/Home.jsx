@@ -1,5 +1,5 @@
 import React from 'react'
-import Intro from './components/Intro/Intro'
+import Intro from './Components/Intro'
 
 
 const Home = () => {

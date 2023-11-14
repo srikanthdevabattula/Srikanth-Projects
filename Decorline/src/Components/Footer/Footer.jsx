@@ -27,10 +27,10 @@ const Footer = () => {
 
         </div>
         <div className='space-y-3 sm:space-y-1'>
-<h4 className='font-bold font-Roboto text-[28px] lg:text-[26px] md:texxt-[22px] sm:text-[14px]'>CONTACT US</h4>
+<h4 className='font-bold font-Roboto text-[28px] lg:text-[26px] md:texxt-[22px] sm:text-[14px] esm:text-[10px]'>CONTACT US</h4>
 <p className='font-poppins text-[16px] lg:text-[14px] md:text-[11px] sm:text-[7px] flex items-center '><FaLocationDot className='text-[#757575] mr-1'/> Kolkata Barasat</p>
-<p className='font-poppins text-[16px] lg:text-[14px] md:text-[11px] sm:text-[7px] flex items-center'><IoMail className='text-[#757575] mr-1'/> Decodecor34@gmail.com</p>
-<input type="email" name="" id="" placeholder='Email Address' className='w-[80%] h-[20%] sm:placeholder:text-[12px] placeholder:text-[white] bg-[#d1d1d1]  border-b-[1px] border-b-[gray]'/>
+<p className='font-poppins text-[16px] lg:text-[14px] md:text-[11px] sm:text-[7px] esm:text-[5px] flex items-center'><IoMail className='text-[#757575] mr-1'/> Decodecor34@gmail.com</p>
+<input type="email" name="" id="" placeholder='Email Address' className='w-[80%] esm:w-[100%] h-[20%] sm:placeholder:text-[12px] placeholder:text-[white] bg-[#d1d1d1]  border-b-[3px] border-b-[#4c4b4b]'/>
 <br />
 <button className='bg-[#000000] text-[white] text-[15px] md:text-[12px] sm:text-[9px] p-[10px_20px] sm:p-[6px_10px]'>SUBSCRIBE</button>
         </div>
