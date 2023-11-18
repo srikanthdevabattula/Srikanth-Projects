@@ -12,10 +12,16 @@ import HowItWorks from "../Pages/HowItWorks/HowItWorks";
 import DesignIdeas from "../Pages/DesignIdeas/DesignIdeas";
 import CustomerReviews from "../Pages/CustomerReviews/CustomerReviews";
 import TermsAndCondition from "../Pages/TermsAndCondition/TermsAndCondition";
+import FAQ from "../Pages/FAQ/FAQ";
+import Notification from "../Pages/Notification/Notification";
+import Products from "../Pages/Products/Products";
+import { useState } from "react";
+import SingleProduct from "../Pages/SingleProduct/SingleProduct";
 
 
 
 const Routers = () => {
+	
 	return (
 		<Routes>
 			<Route
@@ -58,6 +64,25 @@ const Routers = () => {
 				path='/terms&condition'
 				element={<TermsAndCondition/>}
 				/>
+	<Route
+				path='/Notification'
+				element={<Notification/>}
+				/>
+
+<Route
+				path='/FAQ'
+				element={<FAQ/>}
+				/>
+				<Route
+				path='/products'
+				element={<Products/>}
+				/>
+				<Route
+				path='/SingleProduct/:idNo'
+				element={<SingleProduct/>}
+				/>
+
+
 				
 				
 			</Route>

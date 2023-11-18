@@ -75,13 +75,13 @@ const Navbar = () => {
             </h1>
             <h1 onClick={MoreDropdown} className="relative group" ><button className='flex items-center'>MORE <IoMdArrowDropdown/></button>
             {isMoreDropdownOpen && (
-            <div className="absolute mt-2 space-y-2 sm:space-y-0 bg-[#FFFFFF] border border-t-[yellow] border-t-[2px]  rounded-lg z-10 text-[15px] lg:text-[13px] md:text-[11px] sm:text-[6px] w-[230px] lg:w-[200px] md:w-[170px] sm:w-[110px]">
+            <div className="absolute mt-2 space-y-2 sm:space-y-0 bg-[#FFFFFF] border border-t-[yellow] border-t-[2px]  rounded-lg z-10 text-[15px] lg:text-[13px] md:text-[11px] sm:text-[6px] w-[230px] lg:w-[200px] md:w-[170px] sm:w-[110px] ">
               <Link to="/" className="block px-4 py-2 hover:bg-[#ada9a9]">career</Link>
               <Link to="/CustomerReviews" className="block px-4 py-2  hover:bg-[#ada9a9]">customer reviews</Link>
               <Link to="/" className="block px-4 py-2   hover:bg-[#ada9a9]">refer a friend</Link>
               <Link to="/howItWorks" className="block px-4 py-2   hover:bg-[#ada9a9]">how it works</Link>
               
-              <Link to="/" className="block px-4 py-2   hover:bg-[#ada9a9]">Notification</Link>
+              <Link to="/Notification" className="block px-4 py-2   hover:bg-[#ada9a9]">Notification</Link>
               
                </div>
           )}
@@ -98,7 +98,7 @@ const Navbar = () => {
               <Link to="/" className="block px-4 py-2  hover:bg-[#ada9a9]">my profile</Link>
               <Link to="/" className="block px-4 py-2  hover:bg-[#ada9a9]">my team</Link>
               <Link to="/" className="block px-4 py-2   hover:bg-[#ada9a9]">my property details</Link>
-              <Link to="/" className="block px-4 py-2   hover:bg-[#ada9a9]">faqs</Link>
+              <Link to="/FAQ" className="block px-4 py-2   hover:bg-[#ada9a9]">faqs</Link>
               <Link to="/terms&condition" className="block px-4 py-2   hover:bg-[#ada9a9]">terms & condition</Link>
               <Link to="/" className="block px-4 py-2   hover:bg-[#ada9a9]">settings</Link>
               <Link to="/" className="block px-4 py-2   hover:bg-[#ada9a9]">logout</Link>
@@ -117,7 +117,7 @@ const Navbar = () => {
 
         
     </div>
-    {isMenuOpen? <div className='sm-menu transform  transition-transform ease-in duration-500 hidden sm:flex justify-around mb-3 sm:space-x- text-[15px] lg:text-[13px] md:text-[11px] sm:text-[6px] esm:text-[5px] font-semibold'>
+    {isMenuOpen? <div className='sm-menu transform uppercase transition-transform ease-in duration-500 hidden sm:flex justify-around mb-3 sm:space-x- text-[15px] lg:text-[13px] md:text-[11px] sm:text-[6px] esm:text-[5px] font-semibold'>
             <Link to='/'>Home</Link>
             <Link to='/AboutUs'>About Us</Link>
             <h1  onClick={DesignIdeasDropdown} className="relative group" ><button className='flex items-center'>DESIGN IDEAS <IoMdArrowDropdown/></button>
@@ -136,13 +136,13 @@ const Navbar = () => {
             </h1>
             <h1 onClick={MoreDropdown} className="relative group" ><button className='flex items-center'>MORE <IoMdArrowDropdown/></button>
             {isMoreDropdownOpen && (
-            <div className="absolute mt-2 space-y-2 sm:space-y-0 bg-[#FFFFFF] border border-t-[yellow] border-t-[2px]  rounded-lg z-10 text-[15px] lg:text-[13px] md:text-[11px] sm:text-[6px] w-[230px] lg:w-[200px] md:w-[170px] sm:w-[110px]">
+            <div className="absolute mt-2 space-y-2 sm:space-y-0 bg-[#FFFFFF]  border border-t-[yellow] border-t-[2px]  rounded-lg z-10 text-[15px] lg:text-[13px] md:text-[11px] sm:text-[6px] w-[230px] lg:w-[200px] md:w-[170px] sm:w-[110px]">
               <Link to="/" className="block px-4 py-2 hover:bg-[#ada9a9]">career</Link>
               <Link to="/CustomerReviews" className="block px-4 py-2  hover:bg-[#ada9a9]">customer reviews</Link>
               <Link to="/" className="block px-4 py-2   hover:bg-[#ada9a9]">refer a friend</Link>
               <Link to="/howItWorks" className="block px-4 py-2   hover:bg-[#ada9a9]">how it works</Link>
               
-              <Link to="/" className="block px-4 py-2   hover:bg-[#ada9a9]">Notification</Link>
+              <Link to="/Notification" className="block px-4 py-2   hover:bg-[#ada9a9]">Notification</Link>
               
                </div>
           )}

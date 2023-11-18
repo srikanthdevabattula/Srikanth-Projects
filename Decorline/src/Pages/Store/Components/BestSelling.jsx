@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { PRODUCTS } from '../../../Data/BestSellingProduct';
 import Cards from './Cards';
+import { Link } from 'react-router-dom';
 const BestSelling = () => {
 
     const [category,setCategory] = useState("Chair");
@@ -29,7 +30,11 @@ const BestSelling = () => {
 : <h1 className=' text-[40px] my-10'>Coming Soon....</h1>}
 
         </div>
-      <div className='flex justify-center'><button className='bg-[#FFDA18] rounded-[15px] p-[10px_20px] text-[23px] sm:text-[16px] font-bold font-Roboto'>See all →</button></div>
+      <div className='flex justify-center'>
+        <Link to='/products'>
+        <button className='bg-[#FFDA18] rounded-[15px] p-[10px_20px] text-[23px] sm:text-[16px] font-bold font-Roboto'>See all →</button>
+      </Link>
+      </div>
 <div>
    
 
