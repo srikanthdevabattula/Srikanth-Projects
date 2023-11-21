@@ -8,6 +8,7 @@ import { FaRegHeart } from "react-icons/fa";
 import {AiOutlineShoppingCart} from 'react-icons/ai'
 
 import { ProductsDetails } from '../../../Data/Products';
+import { Link } from 'react-router-dom';
 
 const Filter = ({show,setShow}) => {
     
@@ -46,7 +47,7 @@ const Filter = ({show,setShow}) => {
         </button>
         <button className='flex justify-center items-center space-x-2 border-[0.5px] border-[#6C6A6A] rounded-[15px] h-[52px] w-[170px] lg:h-[45px] lg:w-[140px] sm:h-[25px] sm:w-[80px]'>
           <AiOutlineShoppingCart className='text-[25px] sm:text-[15px]' />
-          <p className='text-[#000000] text-[24px] lg:text-[20px]  sm:text-[10px] font-medium font-poppins'>My Cart</p>
+         <Link to='/MyCart'> <p className='text-[#000000] text-[24px] lg:text-[20px]  sm:text-[10px] font-medium font-poppins'>My Cart</p></Link>
         </button>
       </div>
         </div>

@@ -95,7 +95,7 @@ const Navbar = () => {
          
             {isProfileDropdown && (
             <div className="absolute mt-10 md:mt-7 left-[-20px] md:left-[-30px] space-y-2 sm:space-y-0 bg-[#FFFFFF] border border-t-[yellow] border-t-[2px]  rounded-lg z-10 text-[15px] lg:text-[13px] md:text-[11px] sm:text-[6px] w-[230px] lg:w-[200px] md:w-[170px] sm:w-[110px]">
-              <Link to="/" className="block px-4 py-2  hover:bg-[#ada9a9]">my profile</Link>
+              <Link to="/myprofile" className="block px-4 py-2  hover:bg-[#ada9a9]">my profile</Link>
               <Link to="/" className="block px-4 py-2  hover:bg-[#ada9a9]">my team</Link>
               <Link to="/" className="block px-4 py-2   hover:bg-[#ada9a9]">my property details</Link>
               <Link to="/FAQ" className="block px-4 py-2   hover:bg-[#ada9a9]">faqs</Link>

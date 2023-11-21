@@ -17,6 +17,9 @@ import Notification from "../Pages/Notification/Notification";
 import Products from "../Pages/Products/Products";
 import { useState } from "react";
 import SingleProduct from "../Pages/SingleProduct/SingleProduct";
+import GetInTouchWithUs from "../Pages/GetInTouchWithUs/GetInTouchWithUs";
+import MyProfile from "../Pages/MyProfile/MyProfile";
+import MyCart from "../Pages/MyCart/MyCart";
 
 
 
@@ -38,7 +41,7 @@ const Routers = () => {
 				/>
                 <Route
 					path="/ContactUs"
-					element={<ContactUs />}
+					element={<GetInTouchWithUs />}
 				/>
                   <Route
 					path="/Blog"
@@ -81,6 +84,15 @@ const Routers = () => {
 				path='/SingleProduct/:idNo'
 				element={<SingleProduct/>}
 				/>
+				<Route
+				path='/myprofile'
+				element={<MyProfile/>}
+				/>
+					<Route
+				path='/MyCart'
+				element={<MyCart/>}
+				/>
+
 
 
 				
