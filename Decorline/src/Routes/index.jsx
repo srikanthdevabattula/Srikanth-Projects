@@ -12,10 +12,19 @@ import HowItWorks from "../Pages/HowItWorks/HowItWorks";
 import DesignIdeas from "../Pages/DesignIdeas/DesignIdeas";
 import CustomerReviews from "../Pages/CustomerReviews/CustomerReviews";
 import TermsAndCondition from "../Pages/TermsAndCondition/TermsAndCondition";
+import FAQ from "../Pages/FAQ/FAQ";
+import Notification from "../Pages/Notification/Notification";
+import Products from "../Pages/Products/Products";
+import { useState } from "react";
+import SingleProduct from "../Pages/SingleProduct/SingleProduct";
+import GetInTouchWithUs from "../Pages/GetInTouchWithUs/GetInTouchWithUs";
+import MyProfile from "../Pages/MyProfile/MyProfile";
+import MyCart from "../Pages/MyCart/MyCart";
 
 
 
 const Routers = () => {
+	
 	return (
 		<Routes>
 			<Route
@@ -32,7 +41,7 @@ const Routers = () => {
 				/>
                 <Route
 					path="/ContactUs"
-					element={<ContactUs />}
+					element={<GetInTouchWithUs />}
 				/>
                   <Route
 					path="/Blog"
@@ -58,6 +67,34 @@ const Routers = () => {
 				path='/terms&condition'
 				element={<TermsAndCondition/>}
 				/>
+	<Route
+				path='/Notification'
+				element={<Notification/>}
+				/>
+
+<Route
+				path='/FAQ'
+				element={<FAQ/>}
+				/>
+				<Route
+				path='/products'
+				element={<Products/>}
+				/>
+				<Route
+				path='/SingleProduct/:idNo'
+				element={<SingleProduct/>}
+				/>
+				<Route
+				path='/myprofile'
+				element={<MyProfile/>}
+				/>
+					<Route
+				path='/MyCart'
+				element={<MyCart/>}
+				/>
+
+
+
 				
 				
 			</Route>

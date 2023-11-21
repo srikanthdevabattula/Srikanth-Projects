@@ -68,7 +68,8 @@ const CustomerReviews = () => {
         {Reviews.map((data,index)=>
          <SwiperSlide>
          <div className='bg-[#C1C1C1] h-[321px] w-[291px] md:h-[280px] md:w-[250px] sm:w-[120px] sm:h-[160px] font-Roboto px-[4%]'>
-              <div className='pt-8 pb-4 sm:pt-4 sm:pb-2 flex text-[#ffcb12] text-[24px] lg:text-[20px] md:text-[18px] sm:text-[12px]'> {[...Array(Math.floor(data.rating))].map((_, i) => (
+              <div className='pt-8 pb-4 sm:pt-4 sm:pb-2 flex text-[#ffcb12] text-[24px] lg:text-[20px] md:text-[18px] sm:text-[12px]'>
+                 {[...Array(Math.floor(data.rating))].map((_, i) => (
           <AiTwotoneStar key={i} />
         ))}
         {data.rating % 1 === 0.5 && <BiSolidStarHalf key="half" />}
