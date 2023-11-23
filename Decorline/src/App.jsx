@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import Routers from './Routes';
 import { BrowserRouter, useLocation } from "react-router-dom";
+import { ShopContextProvider } from './Context/ShopContext';
 
 
 function ScrollToTop() {
@@ -16,10 +17,12 @@ function ScrollToTop() {
 }
 const App = () => {
   return (
+    <ShopContextProvider>
 <BrowserRouter>
 <ScrollToTop />
 			<Routers />
 		</BrowserRouter>
+    </ShopContextProvider>
 
 	)
 }

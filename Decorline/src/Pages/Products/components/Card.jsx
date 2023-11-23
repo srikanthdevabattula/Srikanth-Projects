@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { IoShareSocial } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 import { IoHeart } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
 
+import { ShopContext } from '../../../Context/ShopContext';
+
 const Card = (props) => {
     const { id, Name, Price, offerPrice, ProductImage, wishlist: initialWishlist,discount } = props.data;
-
+    const { addToCart , cartItems}=useContext(ShopContext)
     // State to manage the local wishlist status
     const [wishlist, setWishlist] = useState(initialWishlist);
   
@@ -14,7 +16,8 @@ const Card = (props) => {
     const toggleWishlist = () => {
       setWishlist(!wishlist);
     };
-
+    
+    const cartItemAmount=cartItems[id]
   return (
     <div className='h-[482px] w-[313px] lg:w-[250px] lg:h-[400px] md:w-[180px] md:h-[300px] sm:w-[160px] sm:h-[270px] bg-[#FFFFFF] space-y-3 lg:space-y-1 my-5 font-Roboto ' style={{ boxShadow: '5.71875px 5.71875px 9.53125px 0px rgba(0, 0, 0, 0.25)' }}>
       <Link to={`/SingleProduct/${id}`}>
@@ -32,7 +35,7 @@ const Card = (props) => {
       </div>
       <div className='flex px-3 justify-between pt-3'>
         <button className='bg-[#D8D8D8] p-[9.5px] rounded-[14px] text-[20px] lg:text-[18px] md:text-[12px] sm:text-[8px]'>Buy Now</button>
-        <button className='p-[9.5px] rounded-[14px] border-[1px] border-[black] text-[20px] lg:text-[18px] md:text-[12px] sm:text-[8px]'>Add To Cart</button>
+        <button className='p-[9.5px] rounded-[14px] border-[1px] border-[black] text-[20px] lg:text-[18px] md:text-[12px] sm:text-[8px]' onClick={()=>addToCart(id)}>Add To Cart {cartItemAmount>0 &&<>({cartItemAmount})</>}</button>
       </div>
       
       {wishlist ? (
