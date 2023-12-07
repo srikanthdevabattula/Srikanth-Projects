@@ -38,7 +38,7 @@ const DiscountSlides = () => {
             <div className='flex-1 bg-cover bg-center rounded-[35px] p-[5%] space-y-4 sm:space-y-2 font-Roboto' style={backgroundImage2}>
             <h1 className='font-bold text-[60px] lg:text-[50px] md:text-[40px] sm:text-[17px]  text-[white]'>High quality sofa
 started</h1>
-<h1 className='text-[#FB0000] font-bold text-[48px] lg:text-[40px] md:text-[30px] sm:text-[15px]'>70% off</h1>
+<h1 className='text-[#FFDA18] font-bold text-[48px] lg:text-[40px] md:text-[30px] sm:text-[15px]'>70% off</h1>
 <p className='text-[#FFDA18] text-[30px] lg:text-[25px] md:text-[20px] sm:text-[13px]'>See all items →</p>
             </div>
             <div className='flex-1'></div>
@@ -49,7 +49,7 @@ started</h1>
             <div className='flex-1 bg-cover bg-center rounded-[35px] p-[5%] space-y-4 sm:space-y-2 font-Roboto' style={backgroundImage2}>
             <h1 className='font-bold text-[60px] lg:text-[50px] md:text-[40px] sm:text-[17px]  text-[white]'>High quality sofa
 started</h1>
-<h1 className='text-[#FB0000] font-bold text-[48px] lg:text-[40px] md:text-[30px] sm:text-[15px]'>70% off</h1>
+<h1 className='text-[#FFDA18] font-bold text-[48px] lg:text-[40px] md:text-[30px] sm:text-[15px]'>70% off</h1>
 <p className='text-[#FFDA18] text-[30px] lg:text-[25px] md:text-[20px] sm:text-[13px]'>See all items →</p>
             </div>
             <div className='flex-1'></div>
@@ -59,7 +59,7 @@ started</h1>
             <div className='flex-1 bg-cover bg-center rounded-[35px] p-[5%] space-y-4 sm:space-y-2 font-Roboto' style={backgroundImage2}>
             <h1 className='font-bold text-[60px] lg:text-[50px] md:text-[40px] sm:text-[17px]  text-[white]'>High quality sofa
 started</h1>
-<h1 className='text-[#FB0000] font-bold text-[48px] lg:text-[40px] md:text-[30px] sm:text-[15px]'>70% off</h1>
+<h1 className='text-[#FFDA18] font-bold text-[48px] lg:text-[40px] md:text-[30px] sm:text-[15px]'>70% off</h1>
 <p className='text-[#FFDA18] text-[30px] lg:text-[25px] md:text-[20px] sm:text-[13px]'>See all items →</p>
             </div>
             <div className='flex-1'></div>

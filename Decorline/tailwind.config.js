@@ -17,7 +17,8 @@ export default {
 			'Ruslan-Display':'Ruslan Display',
 			'Roboto':'Roboto',
 			'lato':'lato',
-      'SansSerif':'Sans Serif'
+      'SansSerif':'Sans Serif',
+	  'Staatliches':'Staatliches'
 		  },
 		 
 		screens: {
@@ -38,5 +39,8 @@ export default {
 			
 		  }
 	},
-	plugins: [],
+	plugins: [
+		require('tailwind-scrollbar-hide'),
+		// Other plugins
+	  ],
 };

@@ -21,7 +21,7 @@ const TermsAndCondition = () => {
       <p className='text-center p-[4%] font-Roboto text-[#727272] text-[28px] lg:text-[24px] md:text-[18px] sm:text-[10px]'>Our company, DecoSpace, is a full-service interior design firm that specializes in residential and commercial projects. We have over 20 years of experience and a team of highly skilled and experienced designers. We are committed to providing our clients with the highest quality of service and the most beautiful and functional interiors.</p>
 
     <div>
-    <ul class="list-disc list-inside px-[3%] space-y-10 md:space-y-6 mb-10">
+    <ul className="list-disc list-inside px-[3%] space-y-10 md:space-y-6 mb-10">
         <div className='space-y-3 md:space-y-2'>
 
         <li className='font-bold font-Roboto text-[33px] md:text-[25px] sm:text-[17px]  pl-2'>Statement of Work</li>

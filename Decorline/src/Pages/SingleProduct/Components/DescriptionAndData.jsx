@@ -16,7 +16,7 @@ const DescriptionAndData = ({features}) => {
   <h1 className='font-bold'>Features:</h1>
   <ul className='ml-6'>
     {features.map((list,index)=>
-    <li className='list-disc'>{list}</li>
+    <li key={index} className='list-disc'>{list}</li>
     )}
   </ul>
 </div>
