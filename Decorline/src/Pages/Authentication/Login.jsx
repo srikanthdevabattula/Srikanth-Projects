@@ -68,6 +68,7 @@ const Login = () => {
   const handleToggle = () => {
     setToggle(!toggle);
     // Save email and password to local storage here
+    // jjj
     if (toggle) {
       localStorage.removeItem('email');
       localStorage.removeItem('password');
@@ -78,7 +79,7 @@ const Login = () => {
   };
 
   if (token) {
-    return <Navigate to='/home' />;
+    return <Navigate to='/' />;
   }
 
   return (
