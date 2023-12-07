@@ -78,7 +78,7 @@ const Login = () => {
   };
 
   if (token) {
-    return <Navigate to='/home' />;
+    return <Navigate to='/' />;
   }
 
   return (
