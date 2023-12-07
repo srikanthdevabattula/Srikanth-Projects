@@ -32,7 +32,7 @@ const BestSelling = () => {
         </div>
       <div className='flex justify-center'>
         <Link to='/products'>
-        <button className='bg-[#FFDA18] rounded-[15px] p-[10px_20px] text-[23px] sm:text-[16px] font-bold font-Roboto'>See all →</button>
+        <button className='bg-[#FFDA18] hover:bg-slate-400 rounded-[15px] p-[10px_20px] text-[23px] sm:text-[16px] font-bold font-Roboto'>See all →</button>
       </Link>
       </div>
 <div>

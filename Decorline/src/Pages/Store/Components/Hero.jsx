@@ -3,6 +3,7 @@ import StoreHero from '../../../assets/StoreHero.png'
 import {IoSearchCircle,IoSearchSharp} from 'react-icons/io5'
 
 import {AiOutlineShoppingCart,AiTwotoneHeart} from 'react-icons/ai'
+import { Link } from 'react-router-dom'
 const Hero = () => {
     const backgroundImageStyle = {
         backgroundImage: `url(${StoreHero})`,
@@ -19,10 +20,10 @@ const Hero = () => {
           <AiTwotoneHeart className='text-[#F35353] bg-[white] rounded-[20px] text-[25px] sm:text-[15px] p-[2px] border-[1px] border-[black]' />
           <p className='text-[#F1E5E5] text-[24px] lg:text-[20px] sm:text-[10px] font-medium font-poppins'>Wishlist</p>
         </button>
-        <button className='flex justify-center items-center space-x-2 border-[0.5px] border-[#6C6A6A] rounded-[15px] h-[62px] w-[170px] lg:h-[55px] lg:w-[140px] sm:h-[30px] sm:w-[80px]'>
+       <Link to='/MyCart'> <button className='flex justify-center items-center space-x-2 border-[0.5px] border-[#6C6A6A] rounded-[15px] h-[62px] w-[170px] lg:h-[55px] lg:w-[140px] sm:h-[30px] sm:w-[80px]'>
           <AiOutlineShoppingCart className='text-[25px] sm:text-[15px]' />
           <p className='text-[#F1E5E5] text-[24px] lg:text-[20px]  sm:text-[10px] font-medium font-poppins'>My Cart</p>
-        </button>
+        </button></Link>
       </div>
     </div>
 

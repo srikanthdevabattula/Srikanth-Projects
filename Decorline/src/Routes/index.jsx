@@ -20,6 +20,13 @@ import SingleProduct from "../Pages/SingleProduct/SingleProduct";
 import GetInTouchWithUs from "../Pages/GetInTouchWithUs/GetInTouchWithUs";
 import MyProfile from "../Pages/MyProfile/MyProfile";
 import MyCart from "../Pages/MyCart/MyCart";
+import Register from "../Pages/Authentication/Register";
+import OTPVerification from "../Pages/Authentication/Otp";
+import Login from "../Pages/Authentication/Login";
+import ForgotPassword from "../Pages/Authentication/ForgotPassword";
+import ForgotPasswordOtpVerification from "../Pages/Authentication/ResetPassword";
+import ResetPassword from "../Pages/Authentication/ResetPassword";
+import UserIntro from "../Pages/Authentication/NewUserIntro";
 
 
 
@@ -27,21 +34,52 @@ const Routers = () => {
 	
 	return (
 		<Routes>
+				<Route 
+			path='/start'
+			element={<UserIntro/>}
+			/>
+					<Route 
+			path='/register'
+			element={<Register/>}
+			/>
+			<Route
+			 path="/otp-verification"
+			  element={<OTPVerification />}
+			   />
+			
+			<Route 
+			path='/login'
+			element={<Login/>}
+			/>
+
+			<Route 
+			path='/forgotpassword'
+			element={<ForgotPassword/>}
+			/>
+			<Route 
+			path='/reset-otp-verification'
+			element={<ForgotPasswordOtpVerification/>}
+			/>
+			
+
+			
 			<Route
 				path="/"
 				element={<MainLayout/>}
 			>
-				<Route
-					path="/"
-					element={<Home />}
-				/>
+				
+		
+			<Route
+			path="/"
+			element={<Home />}
+		/>
 				<Route
 					path="/AboutUs"
 					element={<AboutUs />}
 				/>
                 <Route
 					path="/ContactUs"
-					element={<GetInTouchWithUs />}
+					element={<ContactUs />}
 				/>
                   <Route
 					path="/Blog"

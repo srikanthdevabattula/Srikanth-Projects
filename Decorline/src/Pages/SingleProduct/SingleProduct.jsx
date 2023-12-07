@@ -53,7 +53,7 @@ function decCount(){
        <Link to='/products'> <h5 className='text-[#9F9F9F] text-[16px]  md:text-[13px] font-poppins'>Shop</h5></Link>
         <IoIosArrowForward/>
        <span className=' md:text-[13px] sm:mt-[-4px]'>|</span> 
-        <h5 className=' text-[16px] font-poppins  md:text-[13px]'>Asgaard Sofa</h5>
+        <h5 className=' text-[16px] font-poppins  md:text-[13px]'>{Name}</h5>
       </div>
 
       <div className='flex sm:flex-col h-[808px] lg:h-[730px] md:h-[650px] sm:h-auto  px-[5%]'>

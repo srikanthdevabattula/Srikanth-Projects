@@ -7,6 +7,8 @@ import DiscountSlides from './Components/DiscountSlides'
 import Services from './Components/Services'
 
 const Store = () => {
+  
+
   return (
     <div>
         <Hero/>

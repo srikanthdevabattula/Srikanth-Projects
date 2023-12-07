@@ -22,10 +22,10 @@ const PaymentMethod = () => {
         <form className='space-y-4'>
         <div className='space-y-4'> 
   <input type="radio" id="Debit card" name="card" value="Debit card" style={{boxShadow: '0px 6.500000476837158px 5.200000286102295px 0px #00000040'}}/>
-  <label for="Debit card" className='ml-2'>Debit card</label><br/>
+  <label htmlFor="Debit card" className='ml-2'>Debit card</label><br/>
   <div className='flex items-center space-x-2'>
   <input type="radio" id="Credit card" name="card" value="Credit card" style={{boxShadow: '0px 6.500000476837158px 5.200000286102295px 0px #00000040'}}/>
-  <label for="Credit card">Credit card</label>
+  <label htmlFor="Credit card">Credit card</label>
   <img src={visa} alt=""  className='sm:w-[25px]'/>
   <img src={mastercard} alt="" className='sm:w-[25px]'/>
   <img src={AE} alt="" className='sm:w-[25px]'/>

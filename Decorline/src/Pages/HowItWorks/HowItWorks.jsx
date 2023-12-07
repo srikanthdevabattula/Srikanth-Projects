@@ -8,9 +8,9 @@ const HowItWorks = () => {
         
       };
   return (
-    <div>
+    <div className='mb-12'>
          <div className=' bg-cover bg-center h-[316px] sm:h-[250px] flex text-[white] flex-col justify-center items-center' style={backgroundImageStyle}>
-    <h1 className='text-[48px] sm:text-[30px] font-poppins'>About Us</h1>
+    <h1 className='text-[48px] sm:text-[30px] font-poppins font-bold'>How it works</h1>
     <div className='flex space-x-3 items-center text-[16px] sm:text-[13px]'>
     <Link to='/' className='font-poppins font-medium  '>Home</Link>
      <IoIosArrowForward/>
@@ -56,8 +56,8 @@ const HowItWorks = () => {
             <p className='text-[19px] sm:text-[10px] text-[#4F4F4F]'>Once the construction is complete, we'll give you a final walk-through of your space and answer any questions you have. We'll also provide you with a maintenance plan to help you keep your space looking its best.</p>
         </div>
     </div>
-<div className='space-x-4 flex justify-center my-3 font-bold text-[30px] md:text-[20px] sm:text-[15px]'><button className='bg-[#FFDA18] text-[white] rounded-[15px] p-[20px] sm:p-[8px] shadow-md'>Book Consulation</button>
-<button className='bg-[#FFDA18] text-[white] rounded-[15px] p-[20px] sm:p-[8px] shadow-md'>Get Estimate</button></div>
+<div className='space-x-4 flex justify-center my-3 font-bold text-[30px] md:text-[20px] sm:text-[15px]'><button className='bg-[#FFDA18] text-[white] hover:bg-[white] hover:text-[black] hover:border-[1px] rounded-[15px] p-[20px] sm:p-[8px] shadow-md'>Book Consulation</button>
+<button className='bg-[#FFDA18] text-[white] rounded-[15px] p-[20px] hover:bg-[white] hover:text-[black] hover:border-[1px] sm:p-[8px] shadow-md'>Get Estimate</button></div>
 
     </div>
   )

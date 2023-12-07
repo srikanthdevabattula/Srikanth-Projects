@@ -55,7 +55,7 @@ const LetTalk = () => {
           className='w-[700px] md:w-[500px] sm:w-[250px] outline-none border-b-[2px] border-[#00000054] px-[1%]'
         />
 
-        <button type="submit" className='bg-[#FFDA18] text-[36px] md:text-[26px] sm:text-[20px] font-bold h-[81px] w-[273px] md:h-[60px] md:w-[180px] sm:h-[40px] sm:w-[140px]'>Submit</button>
+        <button type="submit" className='bg-[#FFDA18] hover:bg-[white] hover:text-[#FFDA18] hover:border-[2px] text-[36px] md:text-[26px] sm:text-[20px] font-bold h-[81px] w-[273px] md:h-[60px] md:w-[180px] sm:h-[40px] sm:w-[140px]'>Submit</button>
       </form>
     </div>
   );

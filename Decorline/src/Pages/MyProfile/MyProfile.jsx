@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Hero from './Components/hero';
 
 import MyOrders from './Components/MyOrders';
@@ -18,7 +18,10 @@ import whyus1 from '../../assets/whyus1.png'
 import whyus2 from '../../assets/whyus2.png'
 import whyus3 from '../../assets/whyus3.png'
 import whyus4 from '../../assets/whyus4.png'
+
 const MyProfile = () => {
+    
+
     const backgroundImage2 = {
         backgroundImage: `url(${notifyemail})`,
         

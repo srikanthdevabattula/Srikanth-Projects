@@ -58,6 +58,7 @@ function ContactUsForm({ setContactForm }) {
               placeholder="Name"
               className="placeholder:text-[black] border-[2px] border-[black] rounded-[15px] p-2"
               onChange={handleChange}
+              required
             />
             <input
               type="email"
@@ -65,6 +66,7 @@ function ContactUsForm({ setContactForm }) {
               placeholder="Email"
               className="placeholder:text-[black] border-[2px] border-[black] rounded-[15px] p-2"
               onChange={handleChange}
+              required
             />
             <input
               type="tel"
@@ -72,6 +74,7 @@ function ContactUsForm({ setContactForm }) {
               placeholder="Phone"
               className="placeholder:text-[black] border-[2px] border-[black] rounded-[15px] p-2"
               onChange={handleChange}
+              required
             />
             <textarea
               name="message"
