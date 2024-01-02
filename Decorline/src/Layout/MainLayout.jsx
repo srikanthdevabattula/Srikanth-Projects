@@ -6,7 +6,7 @@ import Footer from "../Components/Footer/Footer";
 
 const MainLayout = () => {
   const [token] = useContext(store);
-
+console.log(token)
   // If there's no token, redirect to the login page
   if (!token) {
     return <Navigate to="/start" />;
@@ -17,7 +17,7 @@ const MainLayout = () => {
   return (
     <main>
       <Navbar />
-      <Outlet />
+      <Outlet token={token} />
       <Footer />
     </main>
   );
