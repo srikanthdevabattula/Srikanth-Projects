@@ -128,7 +128,10 @@ const Login = () => {
                       placeholder='Enter Email'
                       required
                     />
+                    
+                    
                   </div>
+                  <p>email: iamspidey56@gmail.com</p>
                   <div className='flex items-center border-[1px] rounded-[10px] h-[60px] px-2 w-[400px] md:w-[300px] sm:w-[250px] sm:h-[40px]'>
                     <input
                       type={showPassword ? 'text' : 'password'}
@@ -145,7 +148,10 @@ const Login = () => {
                     ) : (
                       <IoEyeOutline onClick={handleTogglePassword} />
                     )}
+                    
+                   
                   </div>
+                  <p>password: 1234</p>
                   <div className='flex justify-between items-center md:space-x-10 space-x-28'>
                     <h4 className='flex items-center font-poppins text-[12px] font-normal text-[#1A1A1A]'>
                       {toggle ? <BiSolidToggleRight onClick={handleToggle} className='text-[35px]' /> : <RiToggleLine onClick={handleToggle} className='text-[35px] md:text-[25px] text-[#b9b7b7]'/>} Remember me</h4>
