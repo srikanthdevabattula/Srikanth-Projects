@@ -18,22 +18,29 @@ import whyus1 from '../../assets/whyus1.png'
 import whyus2 from '../../assets/whyus2.png'
 import whyus3 from '../../assets/whyus3.png'
 import whyus4 from '../../assets/whyus4.png'
-
+import { useSelector } from 'react-redux';
+import { sidebarSelector } from '../../redux/reducer/productsReducer';
+import { motion } from 'framer-motion'
 const MyProfile = () => {
-    
+  
 
     const backgroundImage2 = {
         backgroundImage: `url(${notifyemail})`,
         
       };
-    const [RightComponent,setRightComponent]=useState('My Orders')
+    const RightComponent=useSelector(sidebarSelector)
   return (
-    <div>
+    <motion.div
+    initial={{ width: 0 }}
+    animate={{ width: '100%' }}
+    // transition={{ duration: 0.3 }}
+    exit={{x:window.innerWidth,transition: {duration:0.1}}}
+    >
       <Hero />
 
       <div className='flex p-[3%] justify-between'>
        
-        <ProfileSideBar setRightComponent={setRightComponent}/>
+        <ProfileSideBar />
           
             <div className='w-[70%]  border-[1px] p-[2%]  border-[#727272] rounded-[15px]' style={{boxShadow: '4px 4px 10px 0px #00000040'
 }}>
@@ -118,7 +125,7 @@ Off your order</h1>
 
 </div>
 </div>
-    </div>
+    </motion.div>
   );
 };
 

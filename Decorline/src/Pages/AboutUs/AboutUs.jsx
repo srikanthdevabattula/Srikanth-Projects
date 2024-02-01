@@ -11,14 +11,19 @@ import whyus1 from '../../assets/whyus1.png'
 import whyus2 from '../../assets/whyus2.png'
 import whyus3 from '../../assets/whyus3.png'
 import whyus4 from '../../assets/whyus4.png'
-
+import { motion } from 'framer-motion'
 const AboutUs = () => {
     const backgroundImageStyle = {
         backgroundImage: `url(${blog})`,
         
       };
   return (
-    <div>
+    <motion.div
+    initial={{ width: 0 }}
+    animate={{ width: '100%' }}
+    // transition={{ duration: 0.3 }}
+    exit={{x:window.innerWidth,transition: {duration:0.1}}}
+    >
           <div className=' bg-cover bg-center h-[316px] sm:h-[250px] flex text-[white] flex-col justify-center items-center' style={backgroundImageStyle}>
     <h1 className='text-[48px] sm:text-[30px] font-poppins font-bold'>About Us</h1>
     <div className='flex space-x-3 items-center text-[16px] sm:text-[13px]'>
@@ -76,7 +81,7 @@ We also believe that interior design should be accessible to everyone. We offer 
         </div>
 
       </div>
-    </div>
+    </motion.div>
   )
 }
 

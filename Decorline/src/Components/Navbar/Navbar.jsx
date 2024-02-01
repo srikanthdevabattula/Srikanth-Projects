@@ -4,9 +4,11 @@ import { Link } from 'react-router-dom'
 import {IoMdArrowDropdown} from 'react-icons/io'
 import {MdOutlinePerson} from 'react-icons/md'
 import {GiHamburgerMenu} from 'react-icons/gi'
-import { store } from '../../App'
+
+import Cookies from 'js-cookie'
 const Navbar = () => {
-  const [token,setToken]=useContext(store)
+  // const [token,setToken]=useContext(store)
+  const token = Cookies.get('token')
     const [subscribe,setSubscribe]=useState(false)
     const [isDesignDropdownOpen, setIsDesignDropdownOpen] = useState(false);
     const [isMoreDropdownOpen, setIsMoreDropdownOpen] = useState(false);
@@ -15,46 +17,44 @@ const Navbar = () => {
 
   
     // useEffect(() => {
-    //   // Simulate fetching user subscription status from an API
-    //   // Replace the URL with the actual API endpoint for fetching user data
-    //   fetch('https://api.example.com/user-data', {
-    //     headers: {
-    //       Authorization: `Bearer ${token}`,
-    //     },
-    //   })
-    //     .then((response) => response.json())
-    //     .then((data) => {
+    //   const fetchUserData = async () => {
+    //     try {
+    //       const response = await axios.get('https://api.example.com/user-data', {
+    //         headers: {
+    //           Authorization: `Bearer ${token}`,
+    //         },
+    //       });
+  
     //       // Assuming the API returns a property named 'isSubscribed'
-    //       setSubscribe(data.isSubscribed);
-    //     })
-    //     .catch((error) => {
+    //       setSubscribe(response.data.isSubscribed);
+    //     } catch (error) {
     //       console.error('Error fetching user data:', error);
-    //     });
+    //     }
+    //   };
+  
+    //   fetchUserData();
     // }, [token]);
   
-    // const handelSubscribe = () => {
-    //   // Simulate the API call to update the subscription status
-    //   // Replace the URL with the actual API endpoint for updating subscription status
-    //   fetch('https://api.example.com/update-subscription', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //       Authorization: `Bearer ${token}`,
-    //     },
-    //     body: JSON.stringify({ subscribe: !subscribe }),
-    //   })
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //       // Assuming the API returns a property named 'success'
-    //       if (data.success) {
-    //         setSubscribe(!subscribe);
-    //       } else {
-    //         console.error('Failed to update subscription status:', data.message);
-    //       }
-    //     })
-    //     .catch((error) => {
-    //       console.error('Error updating subscription status:', error);
+    // const handleSubscribe = async () => {
+    //   try {
+    //     const response = await axios.post('https://api.example.com/update-subscription', {
+    //       subscribe: !subscribe,
+    //     }, {
+    //       headers: {
+    //         'Content-Type': 'application/json',
+    //         Authorization: `Bearer ${token}`,
+    //       },
     //     });
+  
+    //     // Assuming the API returns a property named 'success'
+    //     if (response.data.success) {
+    //       setSubscribe(!subscribe);
+    //     } else {
+    //       console.error('Failed to update subscription status:', response.data.message);
+    //     }
+    //   } catch (error) {
+    //     console.error('Error updating subscription status:', error);
+    //   }
     // };
   
 
@@ -142,7 +142,10 @@ const Navbar = () => {
               <Link to="/FAQ" className="block px-4 py-2   hover:bg-[#ada9a9]">faqs</Link>
               <Link to="/terms&condition" className="block px-4 py-2   hover:bg-[#ada9a9]">terms & condition</Link>
               <Link to="/" className="block px-4 py-2   hover:bg-[#ada9a9]">settings</Link>
-              <Link to="/" onClick={()=>setToken(null)} className="block px-4 py-2   hover:bg-[#ada9a9]">Logout</Link>
+              <Link to="/" onClick={() => {
+    Cookies.remove('token');
+    window.location.href = "/"; // Redirect to the home page or login page after logout
+}} className="block px-4 py-2   hover:bg-[#ada9a9]">Logout</Link>
                </div>
           )}
             </div>
@@ -161,7 +164,7 @@ const Navbar = () => {
         
     </div>
     {isMenuOpen? <div className='sm-menu transform uppercase transition-transform ease-in duration-500 hidden sm:flex justify-around mb-3 sm:space-x- text-[15px] lg:text-[13px] md:text-[11px] sm:text-[6px] esm:text-[5px] font-semibold'>
-            <Link to='/home' className='hover:text-[#ffd500]'>Home</Link>
+            <Link to='/' className='hover:text-[#ffd500]'>Home</Link>
             <Link to='/AboutUs' className='hover:text-[#ffd500]'>About Us</Link>
             <h1  onClick={DesignIdeasDropdown} className="relative group " ><button className='flex items-center hover:text-[#ffd500] '>DESIGN IDEAS <IoMdArrowDropdown/></button>
             {isDesignDropdownOpen && (

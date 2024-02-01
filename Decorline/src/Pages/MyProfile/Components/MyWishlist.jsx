@@ -2,11 +2,20 @@ import React from 'react'
 import { ProductsDetails } from '../../../Data/Products'
 import { CiCircleRemove } from "react-icons/ci";
 import { RiShoppingBag2Fill } from "react-icons/ri";
+import { useDispatch, useSelector } from 'react-redux';
+import { actions, cartSelector, productSelector } from '../../../redux/reducer/productsReducer';
 const MyWishlist = () => {
+
+  const dispatch = useDispatch()
+  const productsDetails= useSelector(productSelector)
+  const cart=useSelector(cartSelector)
+  // console.log(cart)
+  
+ 
   return (
     <div>
-{ProductsDetails.map((product,index)=>
-<div>
+{productsDetails.map((product,index)=>
+<div key={index}>
     
     {product.wishlist?
     <div>
@@ -19,9 +28,15 @@ const MyWishlist = () => {
         </div>
         </div>
         <div className='flex flex-col justify-between py-4 md:py-2 sm:py-0'>
-        <CiCircleRemove />
-        <RiShoppingBag2Fill />
-
+        <CiCircleRemove  onClick={()=>dispatch(actions.toggleWishlist(product.id))}/>
+        <div className='flex items-center'>
+  <RiShoppingBag2Fill onClick={() => {
+    dispatch(actions.cart(product.id))
+    dispatch(actions.total())}} />
+  {cart.find(item => item.id === product.id)?.quantity > 0 && (
+    <span>({cart.find(item => item.id === product.id)?.quantity})</span>
+  )}
+</div>
         </div>
        
         </div>

@@ -2,13 +2,19 @@ import React from 'react'
 import blog from '../../assets/ANmain.png'
 import {IoIosArrowForward} from 'react-icons/io'
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion'
 const HowItWorks = () => {
     const backgroundImageStyle = {
         backgroundImage: `url(${blog})`,
         
       };
   return (
-    <div className='mb-12'>
+    <motion.div
+    initial={{ width: 0 }}
+    animate={{ width: '100%' }}
+    // transition={{ duration: 0.3 }}
+    exit={{x:window.innerWidth,transition: {duration:0.1}}}
+    >
          <div className=' bg-cover bg-center h-[316px] sm:h-[250px] flex text-[white] flex-col justify-center items-center' style={backgroundImageStyle}>
     <h1 className='text-[48px] sm:text-[30px] font-poppins font-bold'>How it works</h1>
     <div className='flex space-x-3 items-center text-[16px] sm:text-[13px]'>
@@ -59,7 +65,7 @@ const HowItWorks = () => {
 <div className='space-x-4 flex justify-center my-3 font-bold text-[30px] md:text-[20px] sm:text-[15px]'><button className='bg-[#FFDA18] text-[white] hover:bg-[white] hover:text-[black] hover:border-[1px] rounded-[15px] p-[20px] sm:p-[8px] shadow-md'>Book Consulation</button>
 <button className='bg-[#FFDA18] text-[white] rounded-[15px] p-[20px] hover:bg-[white] hover:text-[black] hover:border-[1px] sm:p-[8px] shadow-md'>Get Estimate</button></div>
 
-    </div>
+    </motion.div>
   )
 }
 

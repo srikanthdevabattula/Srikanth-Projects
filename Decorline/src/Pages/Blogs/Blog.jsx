@@ -5,6 +5,7 @@ import an1 from '../../assets/AN1.png'
 import an2 from '../../assets/AN2.png'
 import an3 from '../../assets/AN3.png'
 import blog from '../../assets/ANmain.png'
+import { motion } from 'framer-motion'
 const Blogs = () => {
   const backgroundImageStyle = {
     backgroundImage: `url(${blog})`,
@@ -12,7 +13,12 @@ const Blogs = () => {
   };
 
   return (
-    <div>
+    <motion.div
+    initial={{ width: 0 }}
+    animate={{ width: '100%' }}
+    // transition={{ duration: 0.3 }}
+    exit={{x:window.innerWidth,transition: {duration:0.1}}}
+    >
              <div className='bg-cover bg-center h-[316px] sm:h-[250px] flex text-[white] flex-col justify-center items-center ' style={backgroundImageStyle}>
     <h1 className='text-[48px] sm:text-[30px] font-poppins font-bold'>Articals & Blogs</h1>
     <div className='flex space-x-3 items-center text-[16px] sm:text-[13px]'>
@@ -67,7 +73,7 @@ Solution</p>
       
     </div>
 
-    </div>
+    </motion.div>
   )
 }
 

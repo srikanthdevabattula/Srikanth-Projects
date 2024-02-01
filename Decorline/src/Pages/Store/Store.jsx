@@ -5,19 +5,24 @@ import BestSelling from './Components/BestSelling'
 import NewInStore from './Components/NewInStore'
 import DiscountSlides from './Components/DiscountSlides'
 import Services from './Components/Services'
-
+import { motion } from 'framer-motion'
 const Store = () => {
   
 
   return (
-    <div>
+    <motion.div
+    initial={{ width: 0 }}
+    animate={{ width: '100%' }}
+    // transition={{ duration: 0.3 }}
+    exit={{x:window.innerWidth,transition: {duration:0.1}}}
+    >
         <Hero/>
         <WhyUs/>
         <BestSelling/>
         <NewInStore/>
         <DiscountSlides/>
         <Services/>
-    </div>
+    </motion.div>
   )
 }
 

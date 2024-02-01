@@ -2,40 +2,46 @@ import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import Cookies from 'js-cookie';
 import axios from 'axios';
-import { ProductsDetails } from '../../../Data/Products';
+// import { ProductsDetails } from '../../../Data/Products';
+import { useSelector } from 'react-redux';
+import { productSelector } from '../../../redux/reducer/productsReducer';
 
 const ProductCard = ({ show }) => {
+
+
+    const productsData=useSelector(productSelector)
+    // console.log(productsData)
+
+
   const [itemsPerPage, setItemsPerPage] = useState(show); // Default items per page
   const [currentPage, setCurrentPage] = useState(1);
-  const totalProducts = ProductsDetails.length;
-
-  const [products, setProducts] = useState([]);
+  const totalProducts = productsData.length;
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const token = Cookies.get('token'); // Get token from cookies
-
+  // console.log(token)
   useEffect(() => {
     const fetchData = async () => {
       try {
-        if (!token) {
+        if (!token) { 
           console.error('Authentication token is missing.');
           return;
         }
-
         const headers = {
           Authorization: `Bearer ${token}`,
+          
         };
 
-        console.log('Request Headers:', headers);
+        // console.log('Request Headers:', headers);
 
         const response = await axios.get(
-          'https://decorline-backend.onrender.com/api/v1/getAllPoducts',
+          '/api/getAllPoducts',
           { headers }
         );
 
         const data = response.data;
-        console.log('Fetched data:', data);
-        setProducts(data);
+        console.log('Fetched data:', data.products);
+       
       } catch (error) {
         console.error('Error fetching data:', error);
 
@@ -46,7 +52,8 @@ const ProductCard = ({ show }) => {
         } else {
           setError({ message: 'An error occurred while fetching data.' });
         }
-      } finally {
+      }
+       finally {
         setLoading(false);
       }
     };
@@ -63,27 +70,35 @@ const ProductCard = ({ show }) => {
   const handleNextPage = () => {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
+      scrollToTop();
     }
   };
 
   const handlePrevPage = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
+      scrollToTop();
     }
   };
+  const scrollToTop = () => {
+      window.scrollTo(0, 0);
 
-  if (loading) {
-    return <p>Loading...</p>; // You can replace this with a loading spinner or component
-  }
+  };
 
-  if (error) {
-    return <p>Error: {error.message}</p>; // Display a meaningful error message to the user
-  }
+
+
+  // if (loading) {
+  //   return <p>Loading...</p>; // You can replace this with a loading spinner or component
+  // }
+
+  // if (error) {
+  //   return <p>Error: {error.message}</p>; // Display a meaningful error message to the user
+  // }
 
   const totalPages = Math.ceil(totalProducts / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = Math.min(startIndex + itemsPerPage, totalProducts);
-  const currentProducts = ProductsDetails.slice(startIndex, endIndex);
+  const currentProducts = productsData.slice(startIndex, endIndex);
 
   return (
     <div>
@@ -104,9 +119,13 @@ const ProductCard = ({ show }) => {
           Prev
         </button>
         {Array.from({ length: totalPages }, (_, i) => (
-          <button
-            key={i}
-            onClick={() => setCurrentPage(i + 1)}
+                   <button
+                   key={i}
+                   onClick={() => {
+                     setCurrentPage(i + 1);
+                     scrollToTop();
+                   }}
+       
             className={
               currentPage === i + 1
                 ? 'active bg-[#FFDA18] md:h-[50px] md:w-[50px] text-[white] h-[60px] w-[60px] rounded-[10px]'
@@ -117,10 +136,14 @@ const ProductCard = ({ show }) => {
           </button>
         ))}
         <button
+         onClick={() => {
+          handleNextPage();
+          scrollToTop();
+        }}
           className={`h-[60px] w-[60px] md:h-[50px] md:w-[50px] bg-[#E9E9E9] rounded-[10px] ${
             currentPage === totalPages ? 'hidden' : ''
           }`}
-          onClick={handleNextPage}
+          
           disabled={currentPage === totalPages}
         >
           Next

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
-import { store } from '../../App';
+
 import start from '../../assets/start.png';
 import { IoEyeOutline, IoEyeOffOutline } from 'react-icons/io5';
 import logo from '../../assets/Logo.png';
@@ -12,11 +12,12 @@ import { BiSolidToggleRight } from 'react-icons/bi';
 import Cookies from 'js-cookie'; // Import js-cookie library
 
 const Login = () => {
+  const token = Cookies.get('token')
   const backgroundImageStyle = {
     backgroundImage: `url(${start})`,
   };
 
-  const [token, setToken] = useContext(store);
+  // const [token, setToken] = useContext(store);
   const [loading, setLoading] = useState(false);
   const [toggle, setToggle] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -36,22 +37,31 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const options = {
+      headers: {"content-type": "application/json"},
+      withCredentials: true
+    }
 
     try {
       setLoading(true);
-
+   
       const response = await axios.post(
-        'https://decorline-backend.onrender.com/api/v1/login',
-        data
+        '/api/login',
+        data,options
+        
+        
       );
+      
 
       const authToken = response.data.token;
+      localStorage.setItem('token', authToken);
+   
 
       // Store the authentication token in cookies
-      Cookies.set('authToken', authToken);
+      // Cookies.set('authToken', authToken);
 
       // Set the token in the context
-      setToken(authToken);
+      // setToken(authToken);
 
       console.log('Login successful:', response.data);
 

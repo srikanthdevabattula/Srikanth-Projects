@@ -1,23 +1,34 @@
 import React, { useContext, useState } from 'react';
 import { IoShareSocial } from 'react-icons/io5';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { IoHeart } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
 
 import { ShopContext } from '../../../Context/ShopContext';
+import { useDispatch, useSelector } from 'react-redux';
+import { actions, cartSelector } from '../../../redux/reducer/productsReducer';
 
 const Card = (props) => {
-    const { id, Name, Price, offerPrice, ProductImage, wishlist: initialWishlist,discount } = props.data;
-    const { addToCart , cartItems}=useContext(ShopContext)
-    // State to manage the local wishlist status
-    const [wishlist, setWishlist] = useState(initialWishlist);
-  
-    // Function to toggle local wishlist status
-    const toggleWishlist = () => {
-      setWishlist(!wishlist);
-    };
+    const { id, Name, Price, offerPrice, ProductImage, wishlist,discount } = props.data;
+    const navigate=useNavigate()
+   
+    const dispatch = useDispatch();
+    const cart=useSelector(cartSelector)
+    // console.log(cart)
     
-    const cartItemAmount=cartItems[id]
+    const productQuantityInCart = cart.find(item => item.id === id)?.quantity || 0;
+
+
+    const handleAddToCart = (id) => {
+      dispatch(actions.cart(id));
+      dispatch(actions.total());
+    };
+    const handelBuyNow=()=>{
+      dispatch(actions.cart(id));
+      dispatch(actions.total());
+       navigate('/MyCart')
+
+    }
   return (
     <div className='h-[482px] w-[313px] lg:w-[250px] lg:h-[400px] md:w-[180px] md:h-[300px] sm:w-[160px] sm:h-[270px] bg-[#FFFFFF] space-y-3 lg:space-y-1 my-5 font-Roboto ' style={{ boxShadow: '5.71875px 5.71875px 9.53125px 0px rgba(0, 0, 0, 0.25)' }}>
       <Link to={`/SingleProduct/${id}`}>
@@ -34,19 +45,19 @@ const Card = (props) => {
         <p>RS. {offerPrice}</p> <p className='text-[#D93535]'>RS.{Price}</p>
       </div>
       <div className='flex px-3 justify-between pt-3'>
-        <button className='bg-[#D8D8D8] p-[9.5px] rounded-[14px] text-[20px] lg:text-[18px] md:text-[12px] sm:text-[8px]'>Buy Now</button>
-        <button className='p-[9.5px] rounded-[14px] border-[1px] border-[black] text-[20px] lg:text-[18px] md:text-[12px] sm:text-[8px]' onClick={()=>addToCart(id)}>Add To Cart {cartItemAmount>0 &&<>({cartItemAmount})</>}</button>
+        <button className='bg-[#D8D8D8] p-[9.5px] rounded-[14px] text-[20px] lg:text-[18px] md:text-[12px] sm:text-[8px]' onClick={()=>handelBuyNow(id)}>Buy Now</button>
+        <button className='p-[9.5px] rounded-[14px] border-[1px] border-[black] text-[20px] lg:text-[18px] md:text-[12px] sm:text-[8px]' onClick={()=>handleAddToCart(id)}>Add To Cart {productQuantityInCart>0 && productQuantityInCart}</button>
       </div>
       
       {wishlist ? (
         <IoHeart
           className='relative top-[-90%] lg:top-[-80%] md:top-[-85%] left-[85%] md:left-[80%] sm:left-[80%] text-[#F35353] bg-[white] rounded-[40px] text-[30px] md:text-[25px] p-[2px]'
-          onClick={toggleWishlist}
+          onClick={()=>dispatch(actions.toggleWishlist(id))}
         />
       ) : (
         <CiHeart
           className='relative top-[-90%] lg:top-[-80%] md:top-[-85%] left-[85%] md:left-[80%] sm:left-[80%]  bg-[white] rounded-[40px] text-[30px] md:text-[25px] p-[2px]'
-          onClick={toggleWishlist}
+          onClick={()=>dispatch(actions.toggleWishlist(id))}
         />
       )}
       {discount?<h1 className='relative top-[-100%] left-[2%] bg-[#E97171] text-[white] w-[35px] h-[35px] p-1 rounded-[20px]'>{discount}</h1>:null}

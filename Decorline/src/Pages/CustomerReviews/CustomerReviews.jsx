@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import {IoIosArrowForward} from 'react-icons/io'
 // Import Swiper styles
@@ -9,13 +9,36 @@ import blog from '../../assets/ANmain.png'
 import { Reviews } from '../../Data/Reviews';
 import {AiTwotoneStar} from 'react-icons/ai'
 import {BiSolidStarHalf} from 'react-icons/bi'
+import axios from 'axios';
+import { motion } from 'framer-motion'
 const CustomerReviews = () => {
     const backgroundImageStyle = {
         backgroundImage: `url(${blog})`,
         
       };
+
+      const [reviews, setReviews] = useState([]);
+
+      useEffect(() => {
+        const fetchReviews = async () => {
+          try {
+            // Replace 'your_api_url_here' with the actual URL of your API endpoint
+            const response = await axios.get('your_api_url_here');
+            setReviews(response.data); // Assuming the API response is an array of reviews
+          } catch (error) {
+            console.error('Error fetching reviews:', error);
+          }
+        };
+    
+        fetchReviews();
+      }, []);
   return (
-    <div>
+    <motion.div
+    initial={{ width: 0 }}
+    animate={{ width: '100%' }}
+    // transition={{ duration: 0.3 }}
+    exit={{x:window.innerWidth,transition: {duration:0.1}}}
+    >
      <div className=' bg-cover bg-center h-[316px] sm:h-[250px] flex text-[white] flex-col justify-center items-center' style={backgroundImageStyle}>
     <h1 className='text-[48px] sm:text-[30px] font-poppins font-bold'>Customer Reviews</h1>
     <div className='flex space-x-3 items-center text-[16px] sm:text-[13px]'>
@@ -66,7 +89,7 @@ const CustomerReviews = () => {
      >
 
         {Reviews.map((data,index)=>
-         <SwiperSlide>
+         <SwiperSlide key={index}>
          <div className='bg-[#C1C1C1] h-[321px] w-[291px] md:h-[280px] md:w-[250px] sm:w-[120px] sm:h-[160px] font-Roboto px-[4%]'>
               <div className='pt-8 pb-4 sm:pt-4 sm:pb-2 flex text-[#ffcb12] text-[24px] lg:text-[20px] md:text-[18px] sm:text-[12px]'>
                  {[...Array(Math.floor(data.rating))].map((_, i) => (
@@ -84,7 +107,7 @@ const CustomerReviews = () => {
       
       
      </Swiper>
-    </div>
+    </motion.div>
   )
 }
 

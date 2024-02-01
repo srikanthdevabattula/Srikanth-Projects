@@ -1,0 +1,34 @@
+.preloader{
+    height: 100vh;
+    width: 100%;
+    background: #edebeb;
+    color:#000000;
+    position: fixed;
+    bottom: 0;
+    left:0;
+    right:0;
+    z-index: 55;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in forwards;
+}
+
+
+
+
+@keyframes fadeIn {
+    0% {
+      opacity: 1; /* Start with opacity 0 */
+    }
+    50% {
+      opacity: 1; /* Opacity 1 at 50% */
+    }
+    100% {
+      opacity: 0; /* Opacity 0 again at 100% */
+    }
+  }
+
+ 

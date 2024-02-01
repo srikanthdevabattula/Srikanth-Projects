@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaLocationDot } from "react-icons/fa6";
 import { FaPhone } from "react-icons/fa";
+import axios from 'axios';
 const Contactusform = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -21,15 +22,13 @@ const Contactusform = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('YOUR_BACKEND_ENDPOINT', {
-        method: 'POST',
+      const response = await axios.post('YOUR_BACKEND_ENDPOINT', formData, {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
       });
 
-      if (response.ok) {
+      if (response.status === 200) {
         // Handle success, e.g., show a success message
         console.log('Form submitted successfully!');
         // You may want to reset the form or redirect the user after successful submission

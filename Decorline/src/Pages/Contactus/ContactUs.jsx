@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react';
 import blog from '../../assets/ANmain.png'
 import ContactUsForm from './components/ContactusForm';
+import { motion } from 'framer-motion'
 const ContactUs = () => {
     const backgroundImageStyle = {
         backgroundImage: `url(${blog})`,
@@ -12,7 +13,12 @@ const ContactUs = () => {
   
     const [ContactFormOpen, setContactForm] = useState(false);
   return (
-    <div>
+    <motion.div
+    initial={{ width: 0 }}
+    animate={{ width: '100%' }}
+    // transition={{ duration: 0.3 }}
+    exit={{x:window.innerWidth,transition: {duration:0.1}}}
+    >
           <div className=' bg-cover bg-center h-[316px] sm:h-[250px] flex text-[white] flex-col justify-center items-center' style={backgroundImageStyle}>
     <h1 className='text-[48px] sm:text-[30px] font-poppins font-bold'>Contact Us</h1>
     <div className='flex space-x-3 items-center text-[16px] sm:text-[13px]'>
@@ -39,7 +45,7 @@ const ContactUs = () => {
       {ContactFormOpen && <ContactUsForm setContactForm={setContactForm} />}
     </div>
 
-    </div>
+    </motion.div>
   )
 }
 

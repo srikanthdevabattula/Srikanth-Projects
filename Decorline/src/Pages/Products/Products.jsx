@@ -4,7 +4,8 @@ import Filter from './components/Filter';
 import ProductCard from './components/ProductCard';
 import notifyemail from '../../assets/Notification/notifyemail.png';
 import Services from '../Store/Components/Services';
-
+import axios from 'axios';
+import { motion } from 'framer-motion'
 const Products = () => {
   const backgroundImage2 = {
     backgroundImage: `url(${notifyemail})`,
@@ -13,37 +14,37 @@ const Products = () => {
   const [show, setShow] = useState(8);
   const [email, setEmail] = useState('');
 
-  const sendEmailToBackend = () => {
+  const sendEmailToBackend = async () => {
     // Check if the email is not empty
     if (!email.trim()) {
       alert('Please enter a valid email address.');
       return;
     }
 
-    // Replace the URL with the actual endpoint for sending emails
-    fetch('https://your-backend-api.com/send-email', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // Handle the response from the backend
-        console.log(data); // Log the response for debugging
-        // Optionally, you can show a success message or perform other actions
-        alert('Email sent successfully!');
-      })
-      .catch((error) => {
-        console.error('Error sending email:', error);
-        // Handle the error, e.g., show an error message to the user
-        alert('Failed to send email. Please try again later.');
-      });
+    try {
+      // Replace the URL with the actual endpoint for sending emails
+      const response = await axios.post('https://your-backend-api.com/send-email', { email });
+
+      // Handle the response from the backend
+      console.log(response.data); // Log the response for debugging
+
+      // Optionally, you can show a success message or perform other actions
+      alert('Email sent successfully!');
+    } catch (error) {
+      console.error('Error sending email:', error);
+
+      // Handle the error, e.g., show an error message to the user
+      alert('Failed to send email. Please try again later.');
+    }
   };
 
   return (
-    <div>
+    <motion.div
+    initial={{ width: 0 }}
+    animate={{ width: '100%' }}
+    // transition={{ duration: 0.3 }}
+    exit={{x:window.innerWidth,transition: {duration:0.1}}}
+    >
       <Hero />
       <Filter show={show} setShow={setShow} />
 
@@ -82,7 +83,7 @@ const Products = () => {
       </div>
 
       <Services />
-    </div>
+    </motion.div>
   );
 };
 
