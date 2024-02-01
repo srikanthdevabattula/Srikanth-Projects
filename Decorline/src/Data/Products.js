@@ -18,7 +18,7 @@ export const ProductsDetails =[
         id:1,
         Name:'The Modern Sofa in Grey',
         Price:8999,
-        offerPrice:6999,
+        offerPrice:4999,
         category:"Sofas",
         rating:4.5,
         wishlist:true,

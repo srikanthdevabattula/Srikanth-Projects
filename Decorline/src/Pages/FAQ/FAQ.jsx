@@ -5,13 +5,19 @@ import { Link } from 'react-router-dom'
 import { RiSettingsLine,RiMoneyDollarBoxLine } from "react-icons/ri"
 import { BiBell } from "react-icons/bi";
 import FAQSection from './components/FAQSection'
+import { motion } from 'framer-motion'
 const FAQ = () => {
     const backgroundImageStyle = {
         backgroundImage: `url(${blog})`,
         
       };
   return (
-    <div className='py-8'>
+    <motion.div
+    initial={{ width: 0 }}
+    animate={{ width: '100%' }}
+    // transition={{ duration: 0.3 }}
+    exit={{x:window.innerWidth,transition: {duration:0.1}}}
+    >
 
 <div className=' bg-cover bg-center h-[316px] sm:h-[250px] flex text-[white] flex-col justify-center items-center' style={backgroundImageStyle}>
     <h1 className='text-[48px] sm:text-[30px] font-poppins font-bold'>FAQ</h1>
@@ -44,7 +50,7 @@ const FAQ = () => {
       </div>
 
       <FAQSection/>
-         </div>
+         </motion.div>
   )
 }
 

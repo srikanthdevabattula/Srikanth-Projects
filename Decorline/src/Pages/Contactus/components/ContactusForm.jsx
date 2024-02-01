@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./../Contactus.css";
 import { AiFillCloseCircle } from "react-icons/ai";
+import axios from 'axios';
 
 function ContactUsForm({ setContactForm }) {
   const [formData, setFormData] = useState({
@@ -18,14 +19,13 @@ function ContactUsForm({ setContactForm }) {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://your-backend-api.com/submit-contact-form", {
-        method: "POST",
+      const response = await axios.post("https://your-backend-api.com/submit-contact-form", formData, {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
       });
-      if (response.ok) {
+
+      if (response.status === 200) {
         console.log("Form submitted successfully!");
         setContactForm(false);
       } else {

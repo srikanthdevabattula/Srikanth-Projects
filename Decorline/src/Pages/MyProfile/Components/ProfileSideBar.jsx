@@ -10,13 +10,17 @@ import { IoMdContacts } from 'react-icons/io';
 import { FaRegBuilding } from 'react-icons/fa';
 import { GoQuestion } from 'react-icons/go';
 import { RiCustomerServiceLine } from 'react-icons/ri';
-import { store } from '../../../App';
-import axios from 'axios';
 
-const ProfileSideBar = ({ setRightComponent }) => {
-  const [token, setToken] = useContext(store);
+import Cookies from 'js-cookie';
+import { useDispatch, useSelector } from 'react-redux';
+import { actions, sidebarSelector } from '../../../redux/reducer/productsReducer';
 
+const ProfileSideBar = ( ) => {
+  // const token = Cookies.get("token");
+  const sidebar = useSelector(sidebarSelector)
+    console.log(sidebar)
 
+  const dispatch=useDispatch()
  
 
 
@@ -50,69 +54,69 @@ const ProfileSideBar = ({ setRightComponent }) => {
         }}
       >
         <h1
-          onClick={() => setRightComponent('My Orders')}
+          onClick={() => {dispatch(actions.sideBar('My Orders'))}}
           className='flex items-center'
         >
           <RiListOrdered className='mr-2' />
           My Orders
         </h1>
         <h1
-          onClick={() => setRightComponent('Shipping Address')}
+          onClick={() =>{dispatch(actions.sideBar('Shipping Address'))}}
           className='flex items-center'
         >
           <CiLocationOn className='mr-2' />
           Shipping Address
         </h1>
         <h1
-          onClick={() => setRightComponent('Payment Method')}
+          onClick={() => {dispatch(actions.sideBar('Payment Method'))}}
           className='flex items-center'
         >
           <FaCoins className='mr-2' />
           Payment Method
         </h1>
         <h1
-          onClick={() => setRightComponent('My Wishlist')}
+          onClick={() => {dispatch(actions.sideBar('My Wishlist'))}}
           className='flex items-center'
         >
           <IoHeartCircleOutline className='mr-2' />
           My Wishlist
         </h1>
         <h1
-          onClick={() => setRightComponent('Get Estimate')}
+          onClick={() => {dispatch(actions.sideBar('Get Estimate'))}}
           className='flex items-center'
         >
           <CiCreditCard1 className='mr-2' /> Get Estimate
         </h1>
         <h1
-          onClick={() => setRightComponent('My Reviews')}
+          onClick={() => {dispatch(actions.sideBar('My Reviews'))}}
           className='flex items-center'
         >
           <TbMessageStar className='mr-2' />
           My Reviews
         </h1>
         <h1
-          onClick={() => setRightComponent('My Team')}
+          onClick={() => {dispatch(actions.sideBar('My Team'))}}
           className='flex items-center'
         >
           <IoMdContacts className='mr-2' />
           My Team
         </h1>
         <h1
-          onClick={() => setRightComponent('My Property')}
+          onClick={() => {dispatch(actions.sideBar('My Property'))}}
           className='flex items-center'
         >
           <FaRegBuilding className='mr-2' />
           My Property
         </h1>
         <h1
-          onClick={() => setRightComponent('Terms & Condition')}
+          onClick={() => {dispatch(actions.sideBar('Terms & Condition'))}}
           className='flex items-center'
         >
           <GoQuestion className='mr-2' />
           Terms & Condition
         </h1>
         <h1
-          onClick={() => setRightComponent('Customer Support')}
+          onClick={() => {dispatch(actions.sideBar('Customer Support'))}}
           className='flex items-center'
         >
           <RiCustomerServiceLine className='mr-2' />
@@ -121,7 +125,10 @@ const ProfileSideBar = ({ setRightComponent }) => {
       </div>
       <div>
         <button
-          onClick={() => setToken(null)}
+          onClick={() => {
+            Cookies.remove('token');
+            window.location.href = "/"; // Redirect to the home page or login page after logout
+        }}
           className='w-[313px] lg:w-[280px] md:w-[200px] sm:w-[100px] sm:h-[35px] esm:h-[25px] esm:w-[80px] md:h-[45px] h-[78px] flex items-center border-[1px] text-[20px] md:text-[14px] rounded-[10px] border-[#CCCCCC] px-6 sm:px-2  font-Roboto texxt-[20px] sm:text-[10px] esm:text-[7px]'
           style={{
             boxShadow: '4px 4px 10px 0px #00000040',

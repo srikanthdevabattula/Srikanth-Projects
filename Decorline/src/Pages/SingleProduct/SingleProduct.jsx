@@ -10,14 +10,19 @@ import DescriptionAndData from './Components/DescriptionAndData'
 import EmailDiscount from './Components/EmailDiscount';
 import Whyus from './Components/Whyus';
 import RelatedProducts from './Components/RelatedProducts';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { actions, cartSelector } from '../../redux/reducer/productsReducer';
+import { motion } from 'framer-motion'
 const SingleProduct = () => {
   const { idNo } = useParams();
   const productId = parseInt(idNo, 10);
-
+  // console.log(productId)
+  const dispatch=useDispatch()
   // Find the product with the matching ID
   const product = ProductsDetails.find((product) => product.id === productId);
+const cart =useSelector(cartSelector)
 
+// console.log(count)
   if (!product) {
     return <div>Product not found</div>;
   }
@@ -30,23 +35,34 @@ const SingleProduct = () => {
     wishlist,
     ProductImage,
     rating,
-    discount,
     Description,
     features,
 } = product;
-const [count,setCount]=useState(0)
+// const [count,setCount]=useState(0)
 
-function incCount(){
-  setCount(prev=> prev+1)
+const handleAddToCart = (id) => {
+  dispatch(actions.cart(id));
+  dispatch(actions.total());
+};
+
+const handleIncrement=(id)=>{
+  
+  dispatch(actions.increaseQuantity(id))
+  dispatch(actions.total())
 }
-function decCount(){
-  if(count>0){
-    setCount(prev=> prev-1)
-  }
+const handleDecrement=(id)=>{
+  dispatch(actions.decreaseQuantity(id))
+  dispatch(actions.total())
 }
+const quantityInCart = cart.find(item => item.id === id)?.quantity || 0;
 
   return (
-    <div>
+    <motion.div
+    initial={{ width: 0 }}
+    animate={{ width: '100%' }}
+    // transition={{ duration: 0.3 }}
+    exit={{x:window.innerWidth,transition: {duration:0.1}}}
+    >
       <div className='flex space-x-3 items-center bg-[#FFDA18] px-[5%] h-[80px] md:h-[60px]'>
        <Link to='/Store'> <h5 className='text-[#9F9F9F] text-[16px] md:text-[13px] font-poppins'>Home</h5></Link>
         <IoIosArrowForward/>
@@ -96,9 +112,9 @@ function decCount(){
 
         <div className='flex space-x-4 mt-14 lg:mt-12'>
 
-        <div className='flex justify-around ml-6 border-[1px] border-[#9F9F9F] w-[123px] lg:w-[110px] md:w-[90px] h-[63px] lg:h-[55px] md:h-[45px] font-poppins items-center rounded-[10px] text-[16px]'><button onClick={decCount}>-</button><h4 className='font-medium'>{count}</h4><button onClick={incCount}>+</button></div>
+        <div className='flex justify-around ml-6 border-[1px] border-[#9F9F9F] w-[123px] lg:w-[110px] md:w-[90px] h-[63px] lg:h-[55px] md:h-[45px] font-poppins items-center rounded-[10px] text-[16px]'><button onClick={()=>handleDecrement(id)}>-</button><h4 className='font-medium'>{quantityInCart}</h4><button onClick={()=>handleIncrement(id)}>+</button></div>
 
-                 <button className='border-[1px] text-[19px] lg:text-[17px] font-bold font-Roboto border-[black] rounded-[15px] h-[63px] lg:h-[55px] md:h-[45px] w-[215px] lg:w-[190px] md:w-[160px] hover:bg-[black] hover:text-[white]'>Add To Cart</button>
+                 <button className='border-[1px] text-[19px] lg:text-[17px] font-bold font-Roboto border-[black] rounded-[15px] h-[63px] lg:h-[55px] md:h-[45px] w-[215px] lg:w-[190px] md:w-[160px] hover:bg-[black] hover:text-[white]' onClick={()=>handleAddToCart(id)}>Add To Cart</button>
         </div>
 
                   <div className='ml-6 mt-16 lg:mt-14 md:mt-10 pt-10 md:pt-6 border-t-[1px] border-[#D9D9D9] text-[#9F9F9F] text-[16px] lg:text-[14px] md:text-[12px] sm:text-[10px] font-poppins'>
@@ -120,7 +136,7 @@ function decCount(){
 <RelatedProducts data={product}/>
       <Whyus/>
       
-    </div>
+    </motion.div>
     
   );
 };

@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import notify1 from '../../assets/Notification/notify1.png'
 import notify2 from '../../assets/Notification/notify2.png'
 import notifyemail from '../../assets/Notification/notifyemail.png'
+import { motion } from 'framer-motion'
 const Notification = () => {
     const backgroundImageStyle = {
         backgroundImage: `url(${blog})`,
@@ -16,7 +17,12 @@ const Notification = () => {
         
       };
   return (
-    <div>
+    <motion.div
+    initial={{ width: 0 }}
+    animate={{ width: '100%' }}
+    // transition={{ duration: 0.3 }}
+    exit={{x:window.innerWidth,transition: {duration:0.1}}}
+    >
 
         
 <div className=' bg-cover bg-center h-[316px] sm:h-[250px] flex text-[white] flex-col justify-center items-center' style={backgroundImageStyle}>
@@ -80,7 +86,7 @@ Off your order</h1>
         
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

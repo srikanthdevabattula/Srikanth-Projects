@@ -9,8 +9,11 @@ import {AiOutlineShoppingCart} from 'react-icons/ai'
 
 import { ProductsDetails } from '../../../Data/Products';
 import { Link } from 'react-router-dom';
+import { actions } from '../../../redux/reducer/productsReducer';
+import { useDispatch } from 'react-redux';
 
 const Filter = ({show,setShow}) => {
+  const dispatch = useDispatch()
     
   return (
     <div>
@@ -41,10 +44,10 @@ const Filter = ({show,setShow}) => {
       </div>
 
             <div className='space-x-6 md:space-x-3 flex'>
-        <button className='flex justify-center items-center space-x-2 border-[0.5px] border-[#6C6A6A] rounded-[15px] h-[52px] w-[170px] lg:h-[45px] lg:w-[140px] sm:h-[25px] sm:w-[80px]'>
+       <Link to='/myprofile'><button onClick={()=>{dispatch(actions.sideBar('My Wishlist'))}} className='flex justify-center items-center space-x-2 border-[0.5px] border-[#6C6A6A] rounded-[15px] h-[52px] w-[170px] lg:h-[45px] lg:w-[140px] sm:h-[25px] sm:w-[80px]'>
           <FaRegHeart  className=' bg-[white] rounded-[20px] text-[25px] sm:text-[15px] p-[2px] border-[1px] border-[black]' />
           <p className='text-[#000000] text-[24px] lg:text-[20px] sm:text-[10px] font-medium font-poppins'>Wishlist</p>
-        </button>
+        </button></Link> 
         <button className='flex justify-center items-center space-x-2 border-[0.5px] border-[#6C6A6A] rounded-[15px] h-[52px] w-[170px] lg:h-[45px] lg:w-[140px] sm:h-[25px] sm:w-[80px]'>
           <AiOutlineShoppingCart className='text-[25px] sm:text-[15px]' />
          <Link to='/MyCart'> <p className='text-[#000000] text-[24px] lg:text-[20px]  sm:text-[10px] font-medium font-poppins'>My Cart</p></Link>

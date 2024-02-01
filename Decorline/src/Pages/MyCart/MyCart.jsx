@@ -6,20 +6,31 @@ import { IoIosArrowBack } from "react-icons/io";
 import { Link } from 'react-router-dom';
 import ShippingAddress from './Components/ShippingAddress';
 import Payment from './Components/Payment';
+import { useSelector } from 'react-redux';
+import { cartSelector, totalSelector } from '../../redux/reducer/productsReducer';
+import { motion } from 'framer-motion'
 const MyCart = () => {
     const [right,setRight]=useState("address")
     const tax = 20;
-    const { cartItems,getTotalCartAmount } = useContext(ShopContext)
-    const totalAmount = getTotalCartAmount()
-    let itemsinCart=0;
+   
+    const totalAmount = useSelector(totalSelector);
+    const cartItems = useSelector(cartSelector);
+  
+    console.log('Cart Items:', cartItems);
+    console.log('Total Amount:', totalAmount);
+   
+    console.log(totalAmount)
+    
 
-    Object.values(cartItems).forEach((count) => {
-        itemsinCart += count;
-      });
+  
   return (
     
 
-    <div className='flex sm:flex-col sm:space-y-8 my-10 font-poppins'>
+    <motion.div className='flex sm:flex-col sm:space-y-8 my-10 font-poppins'
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    // transition={{ duration: 0.3 }}
+    exit={{opacity:0}}>
         <div className='left flex-1 border-r-[2px] border-[#DCDCDC]'>
         
      <Link to='/Products'>   <button className='flex items-center p-[11px_61px] text-[#1E1E1E] font-semibold font-poppins text-[30px] md:text-[20px]' style={{background: "linear-gradient(180deg, #FFDA18 24.44%, rgba(255, 218, 24, 0) 160%)"
@@ -35,9 +46,9 @@ const MyCart = () => {
 
             <h1 className='text-[20px] font-medium'>Order Summary</h1>
             <h3 className='font-medium text-[18px]'>Shipping cart</h3>
-            <p className='text-[18px] '>You have {itemsinCart} items in your cart</p>
+            <p className='text-[18px] '>You have {cartItems.length} items in your cart</p>
 
-        {ProductsDetails.map((product ,index)=>{
+        {cartItems.map((product ,index)=>{
             if(cartItems[product.id]!==0){
                
                 return <CartItem key={index} data={product}/>
@@ -89,7 +100,7 @@ const MyCart = () => {
                 right=="payment"&&<Payment setRight={setRight}/>
             }
         </div>
-    </div>
+    </motion.div>
   )
 }
 
