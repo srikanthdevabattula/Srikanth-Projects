@@ -7,20 +7,22 @@ import Cookies from 'js-cookie';
 
 const MainLayout = () => {
   
-  const token = Cookies.get('token')
+  // const token = Cookies.get('token')
   
-console.log(token)
+// console.log(token)
   
-  if (!token) {
-    return <Navigate to="/start" />;
-  }
+  // if (!token) {
+  //   return <Navigate to="/start" />;
+  // }
  
 
 
   return (
     <main>
       <Navbar />
-      <Outlet token={token} />
+      <Outlet
+      //  token={token}
+        />
       <Footer />
     </main>
   );
