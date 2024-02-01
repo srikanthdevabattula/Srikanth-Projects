@@ -36,7 +36,7 @@ const AnimatedRoutes = () => {
   return (
     <AnimatePresence>
     <Routes location={location} key={location.pathname}>
-    <Route 
+    {/* <Route 
 path='/start'
 element={<UserIntro/>}
 />
@@ -61,7 +61,7 @@ element={<ForgotPassword/>}
 <Route 
 path='/reset-otp-verification'
 element={<ForgotPasswordOtpVerification/>}
-/>
+/> */}
 
 
 

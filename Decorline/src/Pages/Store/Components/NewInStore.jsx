@@ -21,6 +21,7 @@ const NewInStore = () => {
         <p className='text-[16px] lg:text-[13px] md:text-[10px] sm:text-[8px] my-10 md:my-5 esm:my-1'>Get the latest items immediately with promo prices</p> 
         <Link className='text-[18px] lg:text-[15px] md:text-[12px] sm:text-[11px] font-bold'>Check All →</Link>
       </div>
+     
       <div className='w-[75%] esm:w-[60%] cursor-grab'>
       <Swiper
        
@@ -54,17 +55,18 @@ const NewInStore = () => {
         className="mySwiper h-[90%] md:h-[80%] esm:h-[90%]  py-[3%] "
       >
         <SwiperSlide className=' h-[100%] '>
+        <Link to='/products'>
           <img src={chair} alt="" className='h-[100%] w-[100%]' />
-          <h3 className='text-center relative top-[-20%] font-bold text-[white] text-[28px] lg:text-[23px] sm:text-[15px] font-Roboto'>Chair</h3>
+          <h3 className='text-center relative top-[-20%] font-bold text-[white] text-[28px] lg:text-[23px] sm:text-[15px] font-Roboto'>Chair</h3></Link>
         </SwiperSlide>
-        <SwiperSlide><img src={bed} alt="" className='h-[100%] w-[100%]' />
-        <h3 className='text-center relative top-[-20%] font-bold text-[white] text-[28px] lg:text-[23px] sm:text-[15px] font-Roboto'>Bed</h3>
+        <SwiperSlide> <Link to='/products'><img src={bed} alt="" className='h-[100%] w-[100%]' />
+        <h3 className='text-center relative top-[-20%] font-bold text-[white] text-[28px] lg:text-[23px] sm:text-[15px] font-Roboto'>Bed</h3></Link>
         </SwiperSlide>
-        <SwiperSlide><img src={cupboard} alt="" className='h-[100%] w-[100%]' />
-        <h3 className='text-center relative top-[-20%] font-bold text-[white] text-[28px] lg:text-[23px] sm:text-[15px] font-Roboto'>Cupboard</h3>
+        <SwiperSlide> <Link to='/products'><img src={cupboard} alt="" className='h-[100%] w-[100%]' />
+        <h3 className='text-center relative top-[-20%] font-bold text-[white] text-[28px] lg:text-[23px] sm:text-[15px] font-Roboto'>Cupboard</h3></Link>
         </SwiperSlide>
-        <SwiperSlide><img src={lighting} alt="" className='h-[100%] w-[100%] pr-1' />
-        <h3 className='text-center relative top-[-20%] font-bold text-[white] text-[28px] lg:text-[23px] sm:text-[15px] font-Roboto'>Lighting</h3>
+        <SwiperSlide> <Link to='/products'><img src={lighting} alt="" className='h-[100%] w-[100%] pr-1' />
+        <h3 className='text-center relative top-[-20%] font-bold text-[white] text-[28px] lg:text-[23px] sm:text-[15px] font-Roboto'>Lighting</h3></Link>
         </SwiperSlide>
         
       </Swiper>

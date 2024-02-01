@@ -7,15 +7,15 @@ import { motion } from 'framer-motion';
 
 const Home = () => {
   // const [token,setToken]=useContext(store);
-  const token = Cookies.get('token')
+//   const token = Cookies.get('token')
 
-  // const [data,setData]=useState(null)
-console.log("token", token)
+//   // const [data,setData]=useState(null)
+// console.log("token", token)
 
 
-  if(!token){
-    return<Navigate to='/login'/>
-  }
+  // if(!token){
+  //   return<Navigate to='/login'/>
+  // }
 
   return (
     <motion.div
