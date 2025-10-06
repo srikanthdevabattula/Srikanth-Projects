@@ -1,5 +1,10 @@
 # Srikanth-Projects
 
+
+Admin: https://decorlinevendor.netlify.app/
+User: https://65ef34df462011009eec0876--scintillating-axolotl-b648c1.netlify.app/
+
+
 go to the project file
 Clone the Repository:
 Click on the "Code" button, copy the repository URL, and use the following command in your terminal to clone it to your local machine:
